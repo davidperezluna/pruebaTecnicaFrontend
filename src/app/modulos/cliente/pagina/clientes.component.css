@@ -1,0 +1,100 @@
+.example-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+.mat-sidenav-container {
+    display: flex;
+    height: 100vh;
+    width: 100%; /* Asegura que el contenedor sidenav tenga una anchura completa */
+    overflow: hidden;
+}
+
+.mat-sidenav {
+    width: 350px;
+    height: 100%; /* Asegura que el sidenav tenga una altura completa */
+}
+
+.mat-sidenav-content {
+    flex-grow: 1;
+    overflow-y: auto; /* Desplazamiento vertical si es necesario */
+    transition: margin-left .3s; /* Transición suave para el margen izquierdo */
+}
+
+/* Agregado un margen izquierdo para cuando el sidenav está abierto */
+.mat-sidenav-container .mat-sidenav-content {
+    margin-left: 200px;
+}
+
+
+
+.client-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background: #fff; /* Fondo blanco para asegurar la legibilidad */
+    margin-top: 64px; /* Ajuste basado en la altura del encabezado fijo si existe */
+    width: calc(100% - 200px); /* Ajuste de ancho para no quedar detrás del sidenav */
+}
+
+.top-controls, .bottom-controls {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+}
+
+.client-controls .custom-input {
+    width: calc(100% - 32px); /* Ajuste para el padding y el botón de búsqueda */
+    border: 2px solid #3f51b5;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+button {
+    min-width: 100px;
+}
+
+/* Responsive design adjustments for smaller screens */
+@media (max-width: 600px) {
+    .mat-sidenav-container .mat-sidenav-content {
+        margin-left: 0; /* El contenido se expande cuando el sidenav está oculto */
+    }
+
+    .mat-sidenav {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+        transform: translateX(-100%); /* Oculta el sidenav fuera de la pantalla */
+    }
+
+    .mat-sidenav.opened {
+        transform: translateX(0); /* Muestra el sidenav cuando está abierto */
+    }
+
+    .client-controls {
+        width: 100%; /* Los controles del cliente ocupan el ancho completo */
+        margin-top: 0; /* Eliminar margen superior en dispositivos móviles */
+    }
+}
+
+.mat-nav-list .mat-list-item {
+    white-space: normal;
+    line-height: 1.5;
+    padding: 8px 16px;
+}
+
+.mat-icon {
+    margin-right: 10px;
+    width: 24px;
+    height: 24px;
+}
+
+.mat-list-item span {
+    display: block;
+    flex-grow: 1;
+}

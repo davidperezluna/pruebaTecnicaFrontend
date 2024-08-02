@@ -1,0 +1,72 @@
+<div class="client-controls container">
+    <mat-card>
+        <mat-card-content>
+            <div class="top-controls">
+                <div class="pad">
+                    <button mat-raised-button color="seconadry" (click)="openDialog()">
+                        <mat-icon>add</mat-icon> New
+                    </button>
+                    <button mat-raised-button color="primary">
+                        <mat-icon>file_download</mat-icon> Export
+                    </button>
+                </div>
+            </div>
+            <div class="pad">
+                <mat-form-field appearance="outline">
+                    <input matInput [(ngModel)]="searchKey" placeholder="Shared Key">
+                    <button mat-icon-button matSuffix (click)="buscarPorSharedKey()">
+                    <mat-icon>search</mat-icon>
+                    </button>
+                </mat-form-field>
+                <button mat-button color="seconadry">Advanced Search</button>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
+<div class="tabla-client-controls">
+<h1>Clientes</h1>
+<hr>
+    <table mat-table [dataSource]="clientes" class="mat-elevation-z8">
+        <ng-container matColumnDef="shared">
+        <th mat-header-cell *matHeaderCellDef> Shared Key </th>
+        <td mat-cell *matCellDef="let cliente"> {{cliente.shared}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let cliente"> {{cliente.nombre}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="telefono">
+        <th mat-header-cell *matHeaderCellDef> phone </th>
+        <td mat-cell *matCellDef="let cliente"> {{cliente.telefono}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let cliente"> {{cliente.email}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="inicio">
+        <th mat-header-cell *matHeaderCellDef> Start Date </th>
+        <td mat-cell *matCellDef="let cliente"> {{ cliente.inicio | date: 'dd/MM/yyyy' }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="fin">
+        <th mat-header-cell *matHeaderCellDef> End Date </th>
+        <td mat-cell *matCellDef="let cliente"> {{ cliente.fin | date: 'dd/MM/yyyy' }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let cliente">
+            <button mat-icon-button color="primary" (click)="openDialog(cliente)">
+            <mat-icon>edit</mat-icon>
+            </button>
+        </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>

@@ -1,0 +1,46 @@
+.example-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+.pad {
+    padding: 20px;
+}
+
+
+.client-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 50px;
+    margin-top: 64px;
+    width: calc(100% - 200px);
+}
+
+.tabla-client-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 50px;
+    width: calc(100% - 200px);
+}
+
+.top-controls,
+.bottom-controls {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+}
+
+.client-controls .custom-input {
+    width: calc(100% - 32px);
+    border: 2px solid #3f51b5;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+button {
+    min-width: 100px;
+}

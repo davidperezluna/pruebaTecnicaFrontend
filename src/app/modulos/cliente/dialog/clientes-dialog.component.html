@@ -1,0 +1,51 @@
+<h2 mat-dialog-title>{{data ? 'Editar Cliente' : 'Agregar Cliente'}}</h2>
+<div mat-dialog-content>
+    <form [formGroup]="clienteForm" (ngSubmit)="guardarCliente()">
+        <mat-grid-list cols="2" rowHeight="100px">
+            <mat-grid-tile>
+                <mat-form-field appearance="fill">
+                    <mat-label>Shared Key</mat-label>
+                    <input matInput formControlName="shared">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field appearance="fill">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput formControlName="nombre">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field appearance="fill">
+                    <mat-label>Telefono</mat-label>
+                    <input matInput formControlName="telefono">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email" type="email">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field appearance="fill">
+                    <mat-label>Fecha de Inicio</mat-label>
+                    <input matInput [matDatepicker]="pickerInicio" formControlName="inicio">
+                    <mat-datepicker-toggle matSuffix [for]="pickerInicio"></mat-datepicker-toggle>
+                    <mat-datepicker #pickerInicio></mat-datepicker>
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field appearance="fill">
+                    <mat-label>Fecha de Fin</mat-label>
+                    <input matInput [matDatepicker]="pickerFin" formControlName="fin">
+                    <mat-datepicker-toggle matSuffix [for]="pickerFin"></mat-datepicker-toggle>
+                    <mat-datepicker #pickerFin></mat-datepicker>
+                </mat-form-field>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="dialogRef.close()">Cancelar</button>
+    <button mat-button (click)="guardarCliente()" [disabled]="!clienteForm.valid" type="submit" class="ok-button">OK</button>
+</div>

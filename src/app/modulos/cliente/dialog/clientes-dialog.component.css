@@ -1,0 +1,56 @@
+/* clientes-dialog.component.css */
+:host {
+    display: block;
+    padding: 20px;
+    max-width: 500px;
+  }
+  
+  mat-dialog-content {
+    background-color: #007bff;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  mat-form-field {
+    margin-bottom: 20px;
+  }
+  
+  mat-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  button {
+    margin-right: 8px;
+  }
+  
+  /* Personalización específica para mat-datepicker */
+  mat-datepicker-toggle {
+    margin-left: 8px;
+  }
+  
+  /* Botón OK estilizado */
+  button.ok-button {
+    color: white;
+    background-color: #007bff; /* Azul similar al de la imagen */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  /* Estilos para hacer que el botón 'OK' se vea deshabilitado */
+  button.ok-button:disabled {
+    background-color: #cccccc; /* Gris para indicar que está deshabilitado */
+  }
+
+  .snack-bar-success {
+    color: #155724; /* color de texto para éxito */
+    background-color: #d4edda; /* fondo para éxito */
+  }
+  
+  .snack-bar-error {
+    color: #721c24; /* color de texto para error */
+    background-color: #f8d7da; /* fondo para error */
+  }
+  

@@ -1,0 +1,10 @@
+.logo img {
+    max-width: 80%;
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.pad {
+    padding: 20px;
+}
